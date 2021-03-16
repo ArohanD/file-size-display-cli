@@ -1,5 +1,5 @@
 
-TOTALBLOCKS=$(du -cks * | tail -1 ) | cut -d ' ' -f 1
-echo $TOTALBLOCKS
+TOTALBLOCKS=$(du -cks * | tail -1 | cut -f 1)
+echo "There are ${TOTALBLOCKS}kb worth of files"
 
 
