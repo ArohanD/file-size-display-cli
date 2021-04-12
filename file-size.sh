@@ -7,21 +7,19 @@ RAWOUT=$(du -cks ./*)
 # Push each line of output as an "object" into array
 
 echo "There are ${TOTALBLOCKS}kb worth of files"
-echo "${RAWOUT}"
+echo $RAWOUT
 
 DATAMASH=($RAWOUT)
-echo ${DATAMASH[2]}
 
 # Iterate over array / 2
 # for each i, print i*2 (file size), i*2 + 1 (file name)
-echo "length"
 length=$(expr ${#DATAMASH[@]} / 2)
-echo $length
 
-for i in $length
-    do
-        echo $i #${DATAMASH[i]}
-    done
+for ((i=0; i<$length; i++))
+do
+    echo ${DATAMASH[i * 2]}
+    echo ${DATAMASH[(i * 2) + 1]}
+done
 
 # ALLOUT=$(du)
 # echo $ALLOUT
